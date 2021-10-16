@@ -1,12 +1,15 @@
 import express from 'express';
 import cors from 'cors';
+import morgan from 'morgan';
 
-import { routes } from './routes';
+import { routes } from './index.routes';
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.listen(express.urlencoded({ extended: true }));
+app.use(morgan('dev'));
 
 app.use(routes);
 
