@@ -1,9 +1,9 @@
 import { Router } from 'express';
 
-import { FileRouter } from './routes/file.routes';
+import { fileRouter } from './routes/file.routes';
 
 const routes = Router();
 
-routes.use('/file', FileRouter);
+routes.use('/file', fileRouter);
 
 export { routes };

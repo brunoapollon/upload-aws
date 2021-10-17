@@ -5,14 +5,16 @@ import { FileController } from '@controllers/FileController';
 
 import { multerConfig } from '@configs/multer';
 
-const FileRouter = Router();
+const fileRouter = Router();
 
 const fileController = new FileController();
 
-FileRouter.post(
+fileRouter.post(
   '/posts',
   multer(multerConfig).single('file'),
   fileController.store,
 );
 
-export { FileRouter };
+fileRouter.get('/listAll', fileController.index);
+
+export { fileRouter };

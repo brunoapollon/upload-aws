@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import { File } from '@models/File';
 
 class FileController {
-  public async store(request: Request, response: Response) {
+  public async store(request: Request, response: Response): Promise<Response> {
     const { file } = request;
 
     const fileCreated = await File.create({
@@ -13,6 +13,12 @@ class FileController {
     });
 
     return response.json(fileCreated);
+  }
+
+  public async index(request: Request, response: Response): Promise<Response> {
+    const files = await File.find();
+
+    return response.json(files);
   }
 }
 
