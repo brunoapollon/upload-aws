@@ -37,7 +37,7 @@ const storageTypes = {
 
 const multerConfig = {
   dest: path.resolve(__dirname, '..', '..', 'temp', 'uploads'),
-  storage: storageTypes['s3'],
+  storage: storageTypes[process.env.STORAGE_TYPE === 's3' ? 's3' : 'local'],
 };
 
 export { multerConfig };

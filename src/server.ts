@@ -2,6 +2,7 @@ import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
+import { multerConfig } from '@configs/multer';
 
 import { routes } from './index.routes';
 
@@ -12,6 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 
+app.use('/files', express.static(multerConfig.dest));
 app.use(routes);
 
 app.listen(3333, () => {

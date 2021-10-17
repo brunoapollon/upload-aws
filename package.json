@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@types/cors": "^2.8.12",
+    "@types/dotenv": "^8.2.0",
     "@types/morgan": "^1.9.3",
     "@types/multer": "^1.4.7",
     "@types/multer-s3": "^2.7.10",

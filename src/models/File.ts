@@ -11,6 +11,10 @@ const fileSchema = new mongoose.Schema({
   },
 });
 
+fileSchema.pre('save', function () {
+  if (!this.url) this.url = `${process.env.APP_URL}/files/${this.key}`;
+});
+
 const File = mongoose.model('File', fileSchema);
 
 export { File };

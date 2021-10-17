@@ -17,4 +17,6 @@ fileRouter.post(
 
 fileRouter.get('/listAll', fileController.index);
 
+fileRouter.delete('/deleteFile/:file_id', fileController.delete);
+
 export { fileRouter };
