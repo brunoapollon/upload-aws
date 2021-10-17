@@ -8,8 +8,8 @@ class FileController {
     const fileCreated = await File.create({
       name: file?.originalname,
       size: file?.size,
-      key: file?.filename,
-      url: '',
+      key: file?.key,
+      url: file?.location,
     });
 
     return response.json(fileCreated);
