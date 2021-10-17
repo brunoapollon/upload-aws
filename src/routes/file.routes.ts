@@ -1,17 +1,18 @@
 import { Router, Request, Response } from 'express';
 import multer from 'multer';
 
+import { FileController } from '@controllers/FileController';
+
 import { multerConfig } from '@configs/multer';
 
 const FileRouter = Router();
 
+const fileController = new FileController();
+
 FileRouter.post(
   '/posts',
   multer(multerConfig).single('file'),
-  (request: Request, response: Response) => {
-    console.log(request.file);
-    return response.json({ message: 'hello' });
-  },
+  fileController.store,
 );
 
 export { FileRouter };
